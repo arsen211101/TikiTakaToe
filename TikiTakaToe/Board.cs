@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TikiTakaToe
 {
     public class Board
     {
-        static string[] board = new string[10] { "0", "1","2","3","4","5","6","7","8","9"};
-        
-        
+        static string[] board = new string[10] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+
         public Board()
         {
 
@@ -18,7 +13,7 @@ namespace TikiTakaToe
 
         public bool input(string XorO, int index)
         {
-            if (index <= 0 || index>9)
+            if (index <= 0 || index > 9)
                 return false;
 
             if (board[index] == "")
@@ -39,12 +34,12 @@ namespace TikiTakaToe
         public string WinnerCheck()
         {
             // 
-            for(int j=1; j<4; j++)
+            for (int j = 1; j < 4; j++)
             {
-                if (CheckWinner(j,  j + 3,  j + 6, "X"))
+                if (CheckWinner(j, j + 3, j + 6, "X"))
                     return "X";
 
-                if(CheckWinner(j, j + 3, j + 6, "O"))
+                if (CheckWinner(j, j + 3, j + 6, "O"))
                     return "O";
             }
 
@@ -59,15 +54,15 @@ namespace TikiTakaToe
 
                 j = j + 3;
             }
-            
-           
+
+
             if (CheckWinner(1, 5, 9, "X") || CheckWinner(7, 5, 3, "X"))
             {
                 return "X";
             }
-            
 
-            if (CheckWinner(1, 5, 9, "O") || CheckWinner(7, 5, 3, "O")) 
+
+            if (CheckWinner(1, 5, 9, "O") || CheckWinner(7, 5, 3, "O"))
             {
                 return "O";
             }
@@ -76,7 +71,7 @@ namespace TikiTakaToe
                 return "Draw";
             }
         }
-    
+
 
         public void createBoard()
         {
@@ -85,10 +80,11 @@ namespace TikiTakaToe
                 board[i] = Convert.ToString(i);
             }
         }
-        
+
         public void removeBoard()
         {
-            for(int i=1;i<board.Length; i++){
+            for (int i = 1; i < board.Length; i++)
+            {
                 board[i] = "";
             }
         }
